@@ -1,0 +1,31 @@
+--F skill spam
+
+
+			_G.Spam = false
+
+			while _G.Spam == true do game:GetService("RunService").RenderStepped:wait()
+				
+				local Remote = game.ReplicatedStorage['RemoteEvent']
+                game:GetService("RunService").RenderStepped:wait()
+				local Arguments = {
+					[1] = {
+						[1] = "Skill_BulletPunch",
+						[2] = "Right",
+						[3] = Vector3.new(0,10000,0)
+					}
+				}
+
+				Remote:FireServer(unpack(Arguments))
+				game:GetService("RunService").RenderStepped:wait()
+				local Remote = game.ReplicatedStorage['RemoteEvent']
+
+				local Arguments = {
+					[1] = {
+						[1] = "Skill_BulletPunch",
+						[2] = "Left",
+						[3] = Vector3.new(0,10000,0)
+					}
+				}
+
+				Remote:FireServer(unpack(Arguments))
+			end
